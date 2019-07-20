@@ -9,8 +9,7 @@ command line tools to help scaffolding web application using Fano Framework.
 ## Requirement
 
 - [Free Pascal](https://www.freepascal.org/) >= 3.0
-- Web Server ([Apache with mod_proxy_fcgi](https://httpd.apache.org/docs/2.4/mod/mod_proxy_fcgi.html), nginx)
-- [libcurl development](https://curl.haxx.se/libcurl/)
+- Web Server ([Apache with mod_proxy_scgi](https://httpd.apache.org/docs/2.4/mod/mod_proxy_scgi.html), nginx)
 - [Fano Web Framework](https://github.com/fanoframework/fano)
 
 ## Installation
@@ -97,7 +96,7 @@ environment variable. By default is `app.cgi` filename.
 
 ## Run
 
-Run example Fano FastCGI application
+Run example Fano SCGI application
 
 ```
 $ ./bin/app.cgi
@@ -111,10 +110,10 @@ Setup a virtual host. Please consult documentation of web server you use.
 
 #### Apache
 
-You need to have `mod_proxy_fcgi` installed and loaded. This module is Apache's built-in module, so it is very likely that you will have it with your Apache installation. You just need to make sure it is loaded. For example, on Debian,
+You need to have `mod_proxy_scgi` installed and loaded. This module is Apache's built-in module, so it is very likely that you will have it with your Apache installation. You just need to make sure it is loaded. For example, on Debian,
 
 ```
-$ sudo a2enmod proxy_fcgi
+$ sudo a2enmod proxy_scgi
 $ sudo systemctl restart apache2
 ```
 
@@ -135,7 +134,7 @@ Create virtual host config and add `ProxyPassMatch`, for example
     ProxyPass /css !
     ProxyPass /images !
     ProxyPass /js !
-    ProxyPassMatch ^/(.*)$ fcgi://127.0.0.1:20477
+    ProxyPassMatch ^/(.*)$ scgi://127.0.0.1:20477
 </VirtualHost>
 ```
 Last four line of virtual host configurations basically tell Apache to serve any
