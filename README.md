@@ -140,11 +140,11 @@ Create virtual host config and add `ProxyPassMatch`, for example
 Last four line of virtual host configurations basically tell Apache to serve any
 files inside `css`, `images`, `js` directly otherwise pass it to our application.
 
-On Debian, save it to `/etc/apache2/sites-available` for example as `fano-fastcgi.conf`
+On Debian, save it to `/etc/apache2/sites-available` for example as `fano-scgi.conf`
 Enable this site and restart Apache
 
 ```
-$ sudo a2ensite fano-fastcgi.conf
+$ sudo a2ensite fano-scgi.conf
 $ sudo systemctl restart apache2
 ```
 
