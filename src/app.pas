@@ -10,7 +10,8 @@ program app;
 uses
 
     fano,
-    bootstrap;
+    bootstrap,
+    ServiceContainer;
 
 var
     appInstance : IWebApplication;
@@ -23,6 +24,12 @@ begin
      *
      * @author AUTHOR_NAME <author@email.tld>
      *------------------------------------------------*)
-    appInstance := TBootstrapApp.create('127.0.0.1', 4000);
+    appInstance := TBootstrapApp.create(
+        '127.0.0.1',
+        4000,
+        TServiceContainer.create(
+            TDependencyContainer.create(TDependencyList.create())
+        )
+    );
     appInstance.run();
 end.

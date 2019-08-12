@@ -36,7 +36,7 @@ uses
 
     procedure TBootstrapApp.buildDependencies(const container : IDependencyContainer);
     begin
-        {$INCLUDE Dependencies/dependencies.inc}
+        // {$INCLUDE Dependencies/dependencies.inc}
     end;
 
     procedure TBootstrapApp.buildRoutes(const container : IDependencyContainer);
