@@ -32,6 +32,14 @@ begin
      *
      * @author AUTHOR_NAME <author@email.tld>
      *------------------------------------------------*)
-    appInstance := TBootstrapApp.create(host, port);
+    appInstance := TDaemonWebApplication.create(
+        TScgiAppServiceProvider.create(
+            TServerAppServiceProvider.create(
+                TMyAppServiceProvider.create(),
+                TInetSocketSvr.create(host, port)
+            )
+        ),
+        TMyAppRoutes.create()
+    );
     appInstance.run();
 end.
