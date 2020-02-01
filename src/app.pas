@@ -36,7 +36,7 @@ begin
         TScgiAppServiceProvider.create(
             TServerAppServiceProvider.create(
                 TMyAppServiceProvider.create(),
-                TInetSocketSvr.create(host, port)
+                (TInetSvrFactory.create(host, port) as ISocketSvrFactory).build()
             )
         ),
         TMyAppRoutes.create()
