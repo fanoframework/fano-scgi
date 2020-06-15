@@ -8,11 +8,26 @@ command line tools to help scaffolding web application using Fano Framework.
 
 ## Requirement
 
+- Linux or FreeBSD
 - [Free Pascal](https://www.freepascal.org/) >= 3.0
 - Web Server ([Apache with mod_proxy_scgi](https://httpd.apache.org/docs/2.4/mod/mod_proxy_scgi.html), nginx)
-- [Fano Web Framework](https://github.com/fanoframework/fano)
+- [Fano CLI](https://github.com/fanoframework/fano-cli)
+- Administrative privilege for virtual host setup
 
 ## Installation
+
+### TL;DR
+Make sure all requirements above are met. Run
+
+```
+$ git clone https://github.com:fanofamework/fano-scgi.git --recursive
+$ cd fano-scgi
+$ ./tools/config.setup.sh
+$ ./build.sh
+$ sudo fanocli --deploy-scgi=hello.fano
+$ ./bin/app.cgi
+```
+Open browser and go to `http://hello.fano`, you should see application.
 
 ### Build
 
@@ -24,7 +39,7 @@ If you see something like `Free Pascal Compiler version 3.0.4`,  you are good to
 
 Clone this repository
 
-    $ git clone git@github.com:fanofamework/fano-fastcgi.git --recursive
+    $ git clone https://github.com:fanofamework/fano-scgi.git --recursive
 
 `--recursive` is needed so git also pull [Fano](https://github.com/fanoframework/fano) repository.
 
